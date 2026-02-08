@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-users-table
+      author: pb
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints: 
+                    primaryKey: true
+                    nullable: false
+              
+              - column:
+                  name: keycloak_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    unique: true
+              
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+
+              - column:
+                  name: username
+                  type: VARCHAR(255)
+
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false

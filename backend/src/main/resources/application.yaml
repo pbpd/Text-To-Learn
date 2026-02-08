@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: text-to-learn
+  datasource:
+    url: jdbc:postgresql://localhost:5434/texttolearn
+    username: admin
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/text-to-learn
+
+server:
+  port: 9000
